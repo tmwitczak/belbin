@@ -260,3 +260,17 @@ questions_and_answers = [
         },
     },
 ]
+
+# Validation
+valid = True
+for i, question_and_answers in enumerate(questions_and_answers):
+    score_sum = sum(question_and_answers["answers"][c]["score"] for c in "abcdefgh")
+    score_sum_goal = 10
+
+    if score_sum != score_sum_goal:
+        print("Summed score must be equal to", score_sum_goal, "in question", i + 1)
+
+    valid &= score_sum == score_sum_goal
+
+if not valid:
+    exit(1)
