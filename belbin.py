@@ -1,3 +1,8 @@
+# Imports
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
 # Data
 questions_and_answers = [
     {
@@ -292,3 +297,14 @@ for role in roles:
         questions_and_answers[i]["answers"][c]["score"]
         for i, c in enumerate(role["answers"])
     )
+
+# Plot
+scores_per_role = sorted(
+    [(role["score"], role["name"]) for role in roles], reverse=True
+)
+x = [i[0] for i in scores_per_role]
+y = [i[1] for i in scores_per_role]
+p = np.arange(len(y))
+plt.barh(p, x)
+plt.yticks(p, y)
+plt.show()
