@@ -274,3 +274,21 @@ for i, question_and_answers in enumerate(questions_and_answers):
 
 if not valid:
     exit(1)
+
+# Results
+roles = [
+    {"name": "PR", "answers": "gahdbfe", "score": 0},
+    {"name": "KL", "answers": "dbahfcg", "score": 0},
+    {"name": "AK", "answers": "fecbdga", "score": 0},
+    {"name": "KP", "answers": "cgdehaf", "score": 0},
+    {"name": "WŁ", "answers": "acfgehd", "score": 0},
+    {"name": "RA", "answers": "hdgcaeb", "score": 0},
+    {"name": "DZ", "answers": "bfeacbh", "score": 0},
+    {"name": "FP", "answers": "ehbfgdc", "score": 0},
+]
+
+for role in roles:
+    role["score"] = sum(
+        questions_and_answers[i]["answers"][c]["score"]
+        for i, c in enumerate(role["answers"])
+    )
